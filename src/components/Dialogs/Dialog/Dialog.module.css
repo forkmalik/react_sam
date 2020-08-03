@@ -1,0 +1,9 @@
+.dItem a {
+  text-decoration: none;
+  color: white;
+}
+
+.dItem :hover {
+  color: coral;
+  text-decoration: underline;
+}
