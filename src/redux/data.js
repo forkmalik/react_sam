@@ -1,3 +1,8 @@
+const ADD__POST = "ADD__POST";
+const UPDATE__NEW__TEXT = "UPDATE__NEW__TEX";
+const SEND__MESSAGE = "SEND__MESSAGE";
+const UPDATE__NEW__MESSAGE = "UPDATE__NEW__MESSAGE";
+
 export let store = {
   _callSub() {
     console.log("Aaaaaaaar");
@@ -90,16 +95,32 @@ export let store = {
   },
 
   dispatch(action) {
-    if(action.type === "ADD-POST") {
+    if(action.type === ADD__POST) {
       this._addPost();
-    } else if (action.type === "UPPADTE-NEW-TEXT") {
+    } else if (action.type === UPDATE__NEW__TEXT) {
       this._updateNewText(action.newText);
     }
-    if(action.type === "SEND-MESSAGE") {
+    if(action.type === SEND__MESSAGE) {
       this._sendMessage();
-    } else if (action.type === "UPPADTE-NEW-MESSAGE") {
+    } else if (action.type === UPDATE__NEW__MESSAGE) {
       this._updateMessage(action.newMsText);
     }
   }
 
 };
+
+export const addPostActionCreator = () => {
+  return {type: ADD__POST}
+}
+
+export const newTextActionCreator = (text) => {
+  return {type: UPDATE__NEW__TEXT, newText: text}
+}
+
+export const sentMessageActionCreator = () => {
+  return {type: SEND__MESSAGE}
+}
+
+export const newMessageActionCreator = (willSend) => {
+  return {type: UPDATE__NEW__MESSAGE, newMsText: willSend}
+}
