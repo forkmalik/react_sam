@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import { addPostActionCreator, newTextActionCreator } from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
-  let postsElem = props.posts.map((pts) => (
+  let postsElem = props.profile.posts.map((pts) => (
     <Post message={pts.post} likes_average={pts.likes} />
   ));
 
@@ -27,7 +27,7 @@ const MyPosts = (props) => {
           <textarea
             onChange={onTextChange}
             ref={newPost}
-            value={props.newText}
+            value={props.profile.newText}
           />
         </div>
         <div>

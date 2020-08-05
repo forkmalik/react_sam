@@ -5,10 +5,10 @@ import Dialog from "./Dialog/Dialog";
 import {sentMessageActionCreator, newMessageActionCreator } from "../../redux/dialogReducer";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.dialogs.map((d) => (
+  let dialogsElements = props.dialogs.dialogs.map((d) => (
     <Dialog id={d.id} name={d.name} />
   ));
-  let messagesElements = props.messages.map((m) => (
+  let messagesElements = props.dialogs.messages.map((m) => (
     <Message message={m.message} />
   ));
 
@@ -34,7 +34,7 @@ const Dialogs = (props) => {
           cols="120"
           rows="2"
           ref={newMessage}
-          value={props.newMessageText}
+          value={props.dialogs.newMessageText}
         ></textarea>
         <button onClick={sendMessage}>Send</button>
       </div>

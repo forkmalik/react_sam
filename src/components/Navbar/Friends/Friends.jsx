@@ -4,7 +4,7 @@ import Human from "./Human/Human";
 import { NavLink } from "react-router-dom";
 
 const Friends = (props) => {
-  let friendsElem = props.friends.map((f) => (
+  let friendsElem = props.friends.friends.map((f) => (
     <Human img={f.img_url} name={f.name} />
   ));
   return (

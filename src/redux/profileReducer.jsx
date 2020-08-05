@@ -1,7 +1,16 @@
 const ADD__POST = "ADD__POST";
 const UPDATE__NEW__TEXT = "UPDATE__NEW__TEX";
 
-const profileReducer = (data, action) => {
+let initialState = {
+  posts: [
+    { id: 0, post: "Hello Darkness My Old Friend", likes: 33 },
+    { id: 1, post: "I was born in Hell!", likes: 228 },
+    { id: 2, post: "Dope!", likes: 666 },
+  ],
+  newText: "",
+}
+
+const profileReducer = (data = initialState, action) => {
   switch (action.type) {
     case ADD__POST:
       let endOfArr = data.posts[data.posts.length - 1];

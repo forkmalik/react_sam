@@ -8,22 +8,21 @@ import { Route, BrowserRouter } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/SettingsPage/Settings";
-import { store } from "./redux/data";
+import store from "./redux/redux-store";
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar friends={props.store._data.friends} />
+        <Navbar friends={props.state.friends} />
         <div className="app-wrapper__content">
           <Route
             path="/profile"
             render={() => (
               <Profile
-                posts={props.store._data.posts}
-                newText={props.store._data.newText}
-                dispatch={props.store.dispatch.bind(store)}
+                profile={props.state.profile} 
+                dispatch={store.dispatch.bind(store)}
               />
             )}
           />
@@ -31,10 +30,8 @@ const App = (props) => {
             path="/dialogs"
             render={() => (
               <Dialogs
-                dialogs={props.store._data.dialogs}
-                newMessageText={props.store._data.newMessageText}
-                messages={props.store._data.messages}
-                dispatch={props.store.dispatch.bind(store)}
+                dialogs={props.state.dialogs}
+                dispatch={store.dispatch.bind(store)}
               />
             )}
           />

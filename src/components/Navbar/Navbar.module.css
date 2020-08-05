@@ -9,6 +9,11 @@
       color: #ddf3f5;
       text-decoration: none;
   }
+  .item :hover {
+      cursor: pointer;
+      color: #24a19c;
+  }
+
   
   .activeLink {
       color: #24a19c;
