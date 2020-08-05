@@ -1,10 +1,9 @@
 import React from "react";
 import mpStyle from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { addPostActionCreator, newTextActionCreator } from "../../../redux/data";
+import { addPostActionCreator, newTextActionCreator } from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
-  console.log(props);
   let postsElem = props.posts.map((pts) => (
     <Post message={pts.post} likes_average={pts.likes} />
   ));

@@ -1,7 +1,6 @@
-const ADD__POST = "ADD__POST";
-const UPDATE__NEW__TEXT = "UPDATE__NEW__TEX";
-const SEND__MESSAGE = "SEND__MESSAGE";
-const UPDATE__NEW__MESSAGE = "UPDATE__NEW__MESSAGE";
+import profileReducer from "./profileReducer";
+import dialogReducer from "./dialogReducer";
+
 
 export let store = {
   _callSub() {
@@ -57,70 +56,12 @@ export let store = {
     this._callSub = observer;
   },
 
-  _addPost() {
-    let endOfArr = this._data.posts[this._data.posts.length - 1];
-    let curId = endOfArr.id + 1;
-    let newPost = {
-      id: curId,
-      post: this._data.newText,
-      likes: 0,
-    };
-
-    this._data.posts.push(newPost);
-    this._callSub(this._data);
-    this._data.newText = "";
-  },
-
-  _updateNewText(newPostText) {
-    this._data.newText = newPostText;
-    this._callSub(this._data);
-  },
-
-  _sendMessage() {
-    let endOfArr = this._data.messages[this._data.messages.length - 1];
-    let curId = endOfArr.id + 1;
-    let newMessage = {
-      id: curId,
-      message: this._data.newMessageText,
-    };
-
-    this._data.messages.push(newMessage);
-    this._callSub(this._data);
-    this._data.newMessageText = "";
-  },
-
-  _updateMessage(newMsText) {
-    this._data.newMessageText = newMsText;
-    this._callSub(this._data);
-  },
-
   dispatch(action) {
-    if(action.type === ADD__POST) {
-      this._addPost();
-    } else if (action.type === UPDATE__NEW__TEXT) {
-      this._updateNewText(action.newText);
-    }
-    if(action.type === SEND__MESSAGE) {
-      this._sendMessage();
-    } else if (action.type === UPDATE__NEW__MESSAGE) {
-      this._updateMessage(action.newMsText);
-    }
-  }
-
+    profileReducer(this._data, action);
+    dialogReducer(this._data, action);
+    this._callSub(this._data);
+  },
 };
 
-export const addPostActionCreator = () => {
-  return {type: ADD__POST}
-}
 
-export const newTextActionCreator = (text) => {
-  return {type: UPDATE__NEW__TEXT, newText: text}
-}
 
-export const sentMessageActionCreator = () => {
-  return {type: SEND__MESSAGE}
-}
-
-export const newMessageActionCreator = (willSend) => {
-  return {type: UPDATE__NEW__MESSAGE, newMsText: willSend}
-}

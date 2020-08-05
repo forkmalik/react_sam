@@ -11,7 +11,6 @@ import Settings from "./components/SettingsPage/Settings";
 import { store } from "./redux/data";
 
 const App = (props) => {
-  console.log(props.store);
   return (
     <BrowserRouter>
       <div className="app-wrapper">
