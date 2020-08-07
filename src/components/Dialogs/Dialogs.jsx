@@ -2,25 +2,25 @@ import React from "react";
 import dStyle from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
-import {sentMessageActionCreator, newMessageActionCreator } from "../../redux/dialogReducer";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.dialogs.dialogs.map((d) => (
+  console.log(props);
+  let dialogsElements = props.state.dialogs.map((d) => (
     <Dialog id={d.id} name={d.name} />
   ));
-  let messagesElements = props.dialogs.messages.map((m) => (
+  let messagesElements = props.state.messages.map((m) => (
     <Message message={m.message} />
   ));
 
   let newMessage = React.createRef();
 
-  let sendMessage = () => {
-    props.dispatch(sentMessageActionCreator());
+  let onSendMessage = () => {
+    props.sendMessage();
   };
 
   let onMessageChange = () => {
     let willSend = newMessage.current.value;
-    props.dispatch(newMessageActionCreator(willSend));
+    props.onMessageChange(willSend);
   };
 
   return (
@@ -34,9 +34,9 @@ const Dialogs = (props) => {
           cols="120"
           rows="2"
           ref={newMessage}
-          value={props.dialogs.newMessageText}
+          value={props.state.newMessageText}
         ></textarea>
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={onSendMessage}>Send</button>
       </div>
     </div>
   );

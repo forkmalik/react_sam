@@ -3,12 +3,12 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
 import { Route, BrowserRouter } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/SettingsPage/Settings";
 import store from "./redux/redux-store";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
   return (
@@ -21,17 +21,15 @@ const App = (props) => {
             path="/profile"
             render={() => (
               <Profile
-                profile={props.state.profile} 
-                dispatch={store.dispatch.bind(store)}
+                store={store}
               />
             )}
           />
           <Route
             path="/dialogs"
             render={() => (
-              <Dialogs
-                dialogs={props.state.dialogs}
-                dispatch={store.dispatch.bind(store)}
+              <DialogsContainer
+                store={props.store}
               />
             )}
           />
