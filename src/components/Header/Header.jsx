@@ -1,5 +1,5 @@
 import React from "react";
-import hStryle from './Header.module.css';
+import hStryle from './Header.module.scss';
 
 const Header = () => {
   return (

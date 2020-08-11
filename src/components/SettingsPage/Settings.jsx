@@ -1,5 +1,5 @@
 import React from 'react';
-import settStyle from './Settings.module.css';
+import settStyle from './Settings.module.scss';
 
 const Settings = () => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import mpStyle from "./MyPosts.module.css";
+import mpStyle from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {

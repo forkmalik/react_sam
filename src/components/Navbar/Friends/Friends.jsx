@@ -1,5 +1,5 @@
 import React from "react";
-import friendsStyle from "./Friends.module.css";
+import friendsStyle from "./Friends.module.scss";
 import Human from "./Human/Human";
 import { NavLink } from "react-router-dom";
 

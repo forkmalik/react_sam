@@ -1,5 +1,5 @@
 import React from "react";
-import dStyle from "./Dialogs.module.css";
+import dStyle from "./Dialogs.module.scss";
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
 

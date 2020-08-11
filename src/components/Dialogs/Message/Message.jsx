@@ -1,5 +1,5 @@
 import React from "react";
-import messageStyle from "./Message.module.css";
+import messageStyle from "./Message.module.scss";
 
 const Message = (props) => {
   return <div className={messageStyle.message}>{props.message}</div>;

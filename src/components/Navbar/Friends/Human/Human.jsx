@@ -1,5 +1,5 @@
 import React from "react";
-import humanStyle from "./Human.module.css";
+import humanStyle from "./Human.module.scss";
 
 const Human = (props) => {
   return (
